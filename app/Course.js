@@ -12,13 +12,10 @@ export default class Course extends Component {
   }
 
   render () {
-    return this.props.data['course'] ? (<View style={styles.course}>
-        <Text
-          style={styles.courseName}
-        >{this.props.data['course']}</Text>
-
+    return <View style={[styles.course, !this.props.data['course'] && styles.nothing]}>
+        <Text style={styles.courseName}>{this.props.data['course']}</Text>
         <Text style={styles.courseClass}>{this.props.data['classroom']}</Text>
-      </View>) : (<View style={styles.nothing}></View>)
+      </View>;
   }
 }
 
@@ -33,12 +30,7 @@ const styles = StyleSheet.create({
     padding: 5
   },
   nothing: {
-    height: 100,
-    width: 380/7,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    overflow: 'hidden',
+    backgroundColor: '#fff'
   },
   courseName: {
     fontSize: 10,

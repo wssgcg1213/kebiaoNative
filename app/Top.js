@@ -9,29 +9,15 @@ import React, {
 export default class Top extends Component {
   constructor (props) {
     super(props);
-    this.state = {
-      week: this.props.week || 1
-    };
   }
 
   componentDidMount () {
   }
 
-  _getWeekText () {
-    return `第 ${this.state.week} 周`;
-  }
-  _week (week) {
-
-    this.setState({
-      ...this.state,
-      week: week
-    });
-  }
-
   render () {
     return (
       <View style={styles.topContainer}>
-        <Text style={styles.nowWeek}>{this._getWeekText()}</Text>
+        <Text style={styles.nowWeek}>{`第 ${this.props.nowWeek} 周`}</Text>
         <View style={styles.weekIndicator}>
           <Text style={styles.weeks}>周一</Text>
           <Text style={styles.weeks}>周二</Text>

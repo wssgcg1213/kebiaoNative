@@ -16,13 +16,12 @@ import GridView from 'react-native-grid-view';
 import Course from './app/Course';
 import Top from './app/Top';
 
-const imgUrl = 'http://cet.redrock-team.com/static/img/banner.png';
-
 class kebiaoNative extends Component {
   constructor () {
     super();
     this.state = {
-      items: []
+      items: [],
+      nowWeek: 1
     };
   }
 
@@ -32,10 +31,8 @@ class kebiaoNative extends Component {
       body: 'stuNum=2013211854'
     });
     const kb = await rep.json();
-    console.log(kb);
     const nowWeek = kb.nowWeek;
     const items = Array.from(new Array(42)).map((v, key) => ({ key }));
-    console.log(items);
     if (!Array.isArray(kb.data)) {
       return;
     }
@@ -45,13 +42,13 @@ class kebiaoNative extends Component {
         ...obj
       };
     }
-    this.setState({ items });
+    this.setState({ items, nowWeek });
   }
 
   render () {
     return (
-      <View>
-        <Top week={3}/>
+      <View style={styles.container}>
+        <Top nowWeek={this.state.nowWeek}/>
         <GridView
           items={this.state.items}
           itemsPerRow={7}
@@ -62,18 +59,12 @@ class kebiaoNative extends Component {
   }
 
   renderItem (item) {
-    console.log(item);
     return <Course key={item.key} data={item}/>;
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 100,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   }
 });
 
