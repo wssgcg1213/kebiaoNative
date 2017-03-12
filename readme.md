@@ -1,5 +1,7 @@
 #kebiaoNative
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wssgcg1213/kebiaoNative.svg)](https://greenkeeper.io/)
+
 React-Native Practise
 
 
