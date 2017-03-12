@@ -6,9 +6,9 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react-native": "^0.21.0",
+    "react-native": "^0.42.0",
     "react-native-dropdown": "0.0.6",
-    "react-native-grid-view": "^0.3.7",
+    "react-native-grid-view": "^0.4.1",
     "react-native-quiltview": "^0.1.9"
   }
 }
